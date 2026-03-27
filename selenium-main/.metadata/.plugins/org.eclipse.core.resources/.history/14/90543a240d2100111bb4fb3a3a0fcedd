@@ -1,0 +1,31 @@
+package pim.module;
+
+import org.testng.annotations.Test;
+
+import GenericUtility.BaseClass;
+import POMObjectRepository.AddEmployee;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.LoginPage;
+import POMObjectRepository.PIMPage;
+
+public class PimTest extends BaseClass {
+  
+	@Test
+	public void addEmployeespim() throws InterruptedException {
+	LoginPage lp=new LoginPage(driver);
+	DashboardPage dp=new DashboardPage(driver);
+	PIMPage pp=new PIMPage(driver);
+	AddEmployee ae=new AddEmployee(driver);
+	lp.url("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+	lp.enterCredational("Admin", "admin123");
+	lp.LoginButton();
+	dp.pimlink();
+	pp.addEmployee();
+	ae.createEmployee("athi", "keshan", "v", "1234");
+	Thread.sleep(3000);
+	ae.getCreateLoginDetail().click();
+	Thread.sleep(3000);
+	ae.EmployeeCredetionals("athikeshan", "athi@2005", "athi@2005");
+	ae.getSave().click();
+	}
+}

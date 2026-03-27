@@ -1,0 +1,105 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class DashboardPage {
+	public WebDriver driver;
+	public DashboardPage(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+@FindBy(xpath="//button[@class='oxd-icon-button oxd-icon-button--solid-main orangehrm-attendance-card-action']")
+WebElement Time;
+@FindBy(xpath="//button[@class='oxd-icon-button oxd-icon-button--danger orangehrm-report-icon']")
+WebElement PendingReview;
+@FindBy(xpath="//button[@class='oxd-icon-button oxd-icon-button--info orangehrm-report-icon']")
+WebElement CandidateInterview;
+@FindBy(xpath="//div[@title='Assign Leave']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement AssignLeave;
+@FindBy(xpath="//div[@title='Leave List']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement LeaveList;
+@FindBy(xpath="//div[@title='Apply Leave']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement ApplyLeave;
+@FindBy(xpath="//div[@title='My Leave']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement MyLeave;
+@FindBy(xpath="//div[@title='Timesheets']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement Timesheets;
+@FindBy(xpath="//div[@title='My Timesheet']/..//button[@class='oxd-icon-button orangehrm-quick-launch-icon']")
+WebElement MyTimeSheet;
+@FindBy(xpath="//i[@class='oxd-icon bi-list oxd-topbar-header-hamburger']")
+WebElement Menu;
+@FindBy(xpath="//button[@class='oxd-glass-button orangehrm-upgrade-button']")
+WebElement upgrade;
+@FindBy(xpath="//p[.='manda user']")
+WebElement profile;
+@FindBy(xpath="//a[.='About']")
+WebElement About;
+@FindBy(xpath="//a[.='Support']")
+WebElement support;
+@FindBy(xpath="//a[.='Change Password']")
+WebElement ChangePassword;
+@FindBy(xpath="//a[.='Logout']")
+WebElement Logout;
+@FindBy(xpath="//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]")
+private WebElement pim;
+@FindBy(xpath="//*[name()='svg']/..//span[.='Recruitment']")
+private WebElement Recruitment;
+//bussiness Logic
+public void Recruitmentlink() {
+	Recruitment.click();
+	}
+public void pimlink() {
+	pim.click();
+}
+public void menuClick() {
+	Menu.click();
+}
+public void upgradeClick() {
+	upgrade.click();
+}
+public void profileClick() {
+	profile.click();
+}
+public void aboutClick() {
+	About.click();
+}
+public void supportClick() {
+	support.click();
+}
+public void ChangePasswordClick() {
+	ChangePassword.click();
+}
+public void LogoutClick() {
+	Logout.click();
+}
+public void TimeClick() {
+	Time.click();
+}
+public void PendingReviewClick() {
+	PendingReview.click();
+}
+public void CandidateInterviewClick() {
+	CandidateInterview.click();
+}
+public void AssignLeaveClick() {
+	AssignLeave.click();
+}
+public void LeaveListClick() {
+	LeaveList.click();
+}
+public void TimeSheetsClick() {
+	Timesheets.click();
+}
+public void MyTimeSheetClick() {
+      MyTimeSheet.click();
+}
+public void ApplyLeaveClick() {
+	ApplyLeave.click();
+}
+public void MyLeaveClick() {
+	MyLeave.click();
+}
+}

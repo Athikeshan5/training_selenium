@@ -1,0 +1,22 @@
+package pom_object_repository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+
+import GenericUtility.BaseClass;
+
+public class LogoutPage {
+    WebDriver driver;
+    public LogoutPage(WebDriver driver) {
+    	this.driver=driver;
+    }
+    By Log=By.xpath("//a[.='Logout']");
+    By menu=By.xpath("//button[.='Open Menu']");
+    //Logout
+    public void Logout() {
+	//click menu
+	driver.findElement(menu).click();
+	//logout button
+	driver.findElement(Log).click();
+}
+}

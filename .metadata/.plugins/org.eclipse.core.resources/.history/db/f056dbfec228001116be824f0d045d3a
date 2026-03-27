@@ -1,0 +1,28 @@
+package GenericUtility;
+
+import com.aventstack.extentreports.*;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtentReportUtility {
+
+    public static ExtentReports extent;
+
+    public static ExtentReports getInstance() {
+        if (extent == null) {
+
+            ExtentSparkReporter spark = new ExtentSparkReporter("./reports/report.html");
+
+            spark.config().setReportName("OrangeHRM UI Automation Report");
+            spark.config().setDocumentTitle("Test Results");
+
+            extent = new ExtentReports();   
+            extent.attachReporter(spark);
+
+            extent.setSystemInfo("Automation Tester", "Athikeshan");
+            extent.setSystemInfo("Framework", "Selenium TestNG");
+        }
+        return extent;
+    }
+
+	
+}

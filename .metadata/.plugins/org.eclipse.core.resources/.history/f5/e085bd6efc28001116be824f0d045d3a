@@ -1,0 +1,60 @@
+package GenericUtility;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.*;
+import com.aventstack.extentreports.*;
+
+public class ListenerImplementation implements ITestListener {
+
+    ExtentReports extent=ExtentReportUtility.getInstance();;
+    
+    // 🔥 ThreadLocal for parallel execution
+    public static ThreadLocal<ExtentTest> test = new ThreadLocal<>();
+
+    WebDriver driver;
+
+
+    @Override
+    public void onTestStart(ITestResult result) {
+
+        ExtentTest extentTest = extent.createTest(result.getMethod().getMethodName());
+        
+        test.set(extentTest);   // ✅ assign to current thread
+    }
+
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        test.get().pass("Test Passed ✅");
+    }
+
+    @Override
+    public void onTestFailure(ITestResult result) {
+
+        test.get().fail("Test Failed ❌");
+        test.get().fail(result.getThrowable());
+
+        try {
+            Object obj=result.getInstance();//it return the object of current test driver
+            BaseClass bsc=(BaseClass)driver;
+            WebDriver driver=bsc.driver;
+            ScreenShotUtility s = new ScreenShotUtility();
+            String path = s.captureScreen(driver, result.getMethod().getMethodName());
+
+            // 🔥 attach screenshot properly
+            test.get().addScreenCaptureFromPath(path);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        test.get().skip("Test Skipped ⚠️");
+    }
+
+    @Override
+    public void onFinish(ITestContext context) {
+        extent.flush();
+    }
+}

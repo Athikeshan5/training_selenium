@@ -1,0 +1,130 @@
+package pim.module;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+
+
+public class AddCandidate {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	@Parameters("browser")
+	public void launchbrowser(String browser) {
+		ChromeOptions co = new ChromeOptions();
+		co.addArguments("--incognito");
+		co.addArguments("--headless");
+		EdgeOptions eo = new EdgeOptions();
+		eo.addArguments("--headless");
+		eo.addArguments("--inprivate");
+		FirefoxOptions fo = new FirefoxOptions();
+		fo.addArguments("--private");
+		fo.addArguments("--headless");
+		if(browser.equals("Edge")) {
+			driver=new EdgeDriver(eo);
+		}
+		else if(browser.equals("chrome")) {
+			driver=new ChromeDriver(co);
+		}
+		else if(browser.equals("firefox")) {
+			driver=new FirefoxDriver(fo);
+		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void pimemployeeadding() {
+		//pim module click
+		driver.findElement(By.xpath("//span[.='PIM']/..//*[name()='svg']")).click();
+		//add button
+		driver.findElement(By.xpath("//button[.=' Add ']")).click();
+		//firstname
+		driver.findElement(By.name("firstName")).sendKeys("Raja");
+		//middlename
+		driver.findElement(By.name("middleName")).sendKeys("Ram");
+		//lastname
+		driver.findElement(By.name("lastName")).sendKeys("V");
+		//employeeid
+		driver.findElement(By.xpath("//label[.='Employee Id']/../..//input")).sendKeys("12345");
+		//enable doggle checkbox
+		driver.findElement(By.cssSelector("[class='oxd-switch-input oxd-switch-input--active --label-right']")).click();
+		//username
+		WebElement username=driver.findElement(By.xpath("//label[.='Username']/../..//input"));
+		WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+		wait.until(ExpectedConditions.visibilityOf(username));
+		username.sendKeys("RajaRam");
+		//password
+		driver.findElement(By.xpath("//label[.='Password']/../..//input")).sendKeys("Athi@2005");
+		//confirm password
+		driver.findElement(By.xpath("//label[.='Confirm Password']/../..//input")).sendKeys("Athi@2005");
+		//save
+		driver.findElement(By.cssSelector("[type='submit']")).click();
+		
+	}
+	
+	@Test(priority = 4,dependsOnMethods = "pimemployeeadding")
+	public void adminmodule() {
+		//admin module
+		driver.findElement(By.xpath("//*[name()='svg']/..//span[.='Admin']")).click();
+		//username
+		driver.findElement(By.xpath("//label[.='Username']/../..//input")).sendKeys("RajaRam");
+		//userrole
+		WebElement drop = driver.findElement(By.xpath("//label[.='User Role']/../..//div[@class='oxd-select-text-input' and @tabindex='0']"));
+	    drop.click();
+	    drop.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
+	    drop.click();
+	    //employee name
+	    WebElement emp = driver.findElement(By.cssSelector("[placeholder='Type for hints...']"));
+	    Actions act=new Actions(driver);
+	    act.click(emp).sendKeys("Raja Ram").pause(3000).sendKeys(Keys.ARROW_DOWN,Keys.ENTER).perform();
+//	    WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(15));
+//		wait.until(ExpectedConditions.visibilityOf(emp));
+//	    emp.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
+//	    
+	    //status
+	    WebElement dropdown = driver.findElement(By.xpath("//label[.='Status']/../..//div[@class='oxd-select-text-input']"));
+	    dropdown.click();
+	    dropdown.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
+	    //search
+	    driver.findElement(By.xpath("//button[.=' Search ']")).click();
+	    WebElement verify=driver.findElement(By.xpath("//span[@class='oxd-text oxd-text--span']"));
+	    System.out.println(verify.getText());
+	    if(verify.getText().contains("No Records Found")) {
+	    	System.out.println("No results found");
+	    }else {
+	    WebElement name=driver.findElement(By.cssSelector("[class='oxd-table-cell oxd-padding-cell']"));
+	    if(name.getText().contains("Raja Ram")){
+	    	System.out.println("verified employee name");
+	    }
+	    }
+	}
+	@Test(priority = 5,dependsOnMethods = "login")
+	public void logout() {
+		 WebElement logout=driver.findElement(By.cssSelector("[class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']"));
+		    logout.click();
+		    driver.findElement(By.partialLinkText("Logout")).click();
+		
+	}
+
+}

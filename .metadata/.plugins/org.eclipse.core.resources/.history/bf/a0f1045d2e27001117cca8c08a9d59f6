@@ -1,0 +1,73 @@
+package GenericUtility;
+
+import java.io.IOException;
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+
+import POMObjectRepository.LoginPage;
+
+public class BaseClass {
+
+    public WebDriver driver;
+    public WebDriverWait ww;
+    public FileUtility fu;
+    public WebDriverUtility w;
+
+    @BeforeClass
+    public void beforeClass() throws IOException {
+
+        fu = new FileUtility();
+
+        String browser = fu.getPropertyKeyValue("browser");
+
+        if (browser.equalsIgnoreCase("chrome")) {
+            ChromeOptions op = new ChromeOptions();
+            op.addArguments("--incognito");
+            driver = new ChromeDriver(op);
+
+        } else if (browser.equalsIgnoreCase("edge")) {
+            EdgeOptions eo = new EdgeOptions();
+            eo.addArguments("--inprivate");
+            driver = new EdgeDriver(eo);
+
+        } else if (browser.equalsIgnoreCase("firefox")) {
+            FirefoxOptions fo = new FirefoxOptions();
+            fo.addArguments("-private");
+            driver = new FirefoxDriver(fo);
+        }
+
+        // Initialize AFTER driver creation
+        w = new WebDriverUtility(driver);
+
+        w.maximizeBrowser();
+        w.waitForElementsToLoad(20L);
+        
+        ww = new WebDriverWait(driver, Duration.ofSeconds(20));
+
+        LoginPage lp = new LoginPage(driver);
+
+        lp.url(fu.getPropertyKeyValue("url"));
+        lp.enterCredational(
+                fu.getPropertyKeyValue("username"),
+                fu.getPropertyKeyValue("password"));
+        lp.LoginButton();
+    }
+
+  
+
+    @AfterClass
+    public void afterClass() {
+        w.quitbrowser();
+    }
+}

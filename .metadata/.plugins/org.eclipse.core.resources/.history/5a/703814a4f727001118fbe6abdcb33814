@@ -1,0 +1,44 @@
+package pim.module;
+import java.io.IOException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import GenericUtility.BaseClass;
+import GenericUtility.ExcelUtility;
+import GenericUtility.WebDriverUtility;
+import POMObjectRepository.AddEmployee;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.LoginPage;
+import POMObjectRepository.PIMPage;
+
+public class PimTest extends BaseClass {
+	
+	@DataProvider(name="createEmployee")
+	public Object[][] employee() throws IOException{
+		ExcelUtility eu=new ExcelUtility("./src/test/resources/orangehrmTestScriptData/Employeeadd.xlsx");
+		return eu.getSheetData("Sheet1");
+	}
+  
+	@Test(dataProvider = "createEmployee")
+	public void addEmployeespim(String firstname,String lastname,String middlename,String EmpId,String username,String password,String confirmpassword) throws InterruptedException, IOException {
+	LoginPage lp=new LoginPage(driver);
+	DashboardPage dp=new DashboardPage(driver);
+	PIMPage pp=new PIMPage(driver);
+	AddEmployee ae=new AddEmployee(driver);
+	WebDriverUtility w=new WebDriverUtility(driver);
+	dp.pimlink();
+	pp.addEmployee();
+    ae.createEmployee(firstname,lastname,middlename,EmpId);
+    w.waitForSpecificElementsToclickable(ae.getCreateLoginDetail(), 20L);
+	ae.EmployeeCredetionals(username, password, confirmpassword);
+	ae.getSave().click();
+	dp.pimlink();
+	SoftAssert sa=new SoftAssert();
+	Thread.sleep(3000);
+	sa.assertTrue(pp.listEmployeeButton(username),"no result found");
+	sa.assertAll();
+	
+	
+	}
+}

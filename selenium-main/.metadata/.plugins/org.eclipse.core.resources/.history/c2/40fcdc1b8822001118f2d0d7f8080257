@@ -1,0 +1,25 @@
+package Demo;
+
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import POMObjectRepository.LoginPage;
+
+public class ReadingDataFromDataProvider {
+	WebDriver driver;
+@DataProvider(name="LoginData")
+  public Object[][] getdata(){
+	return new Object[][] {
+		{"Browser","chrome"},
+		{"username","password"},
+		{"Admin","admin123"},
+	};
+}
+@Test(dataProvider="LoginData")
+public void readingFromDataProvider(String Key,String Value) {
+	LoginPage lp=new LoginPage(driver);
+	lp.enterCredational(Key, Value);
+	lp.LoginButton();
+}
+}

@@ -1,0 +1,89 @@
+package GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.*;
+
+public class ExcelUtility {
+
+    String path;
+    FileInputStream fis;
+    FileOutputStream fos;
+    Workbook wb ;
+    Sheet sheet;
+    Row row;
+    Cell col;
+    public ExcelUtility(String path) {
+        this.path = path;
+    }
+
+    public Object[][] getSheetData(String sheetName) throws IOException {
+
+         fis = new FileInputStream(path);
+        wb = WorkbookFactory.create(fis);
+        sheet = wb.getSheet(sheetName);
+
+        int rows = sheet.getLastRowNum();
+        int cols = sheet.getRow(0).getLastCellNum();
+
+        Object[][] tempData = new Object[rows][cols];
+       int validRowCount = 0;
+//        
+            DataFormatter df = new DataFormatter();//it return string without change the value
+        for (int i = 1; i <=rows; i++) {
+            row = sheet.getRow(i);
+
+            // Skip empty row
+            if (row == null || df.formatCellValue(row.getCell(0)).trim().isEmpty()) {
+                break;
+            }
+
+            for (int j = 0; j < cols; j++) {
+            	
+                col=row.getCell(j);
+                
+                if(col!=null) {
+                        tempData[validRowCount][j] = df.formatCellValue(col);
+            
+                    }
+            }
+            validRowCount++;
+            }
+        //above one or below one we can use
+//        for(int i=1;i<=rows;i++) {
+//        	for(int j=0;j<cols;j++) {
+//        		tempData[i-1][j]=df.formatCellValue(getDataFromSingleCell(i,j));
+//        	}
+//        }
+
+        wb.close();
+        fis.close();
+
+        return tempData;
+    }
+//    public Cell getDataFromSingleCell(int rowno,int colno ) {
+//        Cell sheets=sheet.getRow(rowno).getCell(colno);
+//        if(sheets.equals("")) {
+//        	System.out.println("no data found");
+//        }
+//        return sheets;
+//    }
+    public void  createSheetData(String sheetname,int rowno,int cellno) throws EncryptedDocumentException, IOException {
+    	
+    	fis = new FileInputStream(path);
+     	wb=WorkbookFactory.create(fis);
+     	sheet=wb.getSheet(sheetname);
+     	row=sheet.getRow(rowno);
+     	if(row==null) {
+     		row=sheet.createRow(rowno);
+     	}
+     	col=row.createCell(cellno);
+     	if(col==null) {
+     		col=row.createCell(cellno);
+     	}
+     	
+    }
+}

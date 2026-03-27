@@ -1,0 +1,37 @@
+package Assertion;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class DemoAssert {
+@Test
+public void testMethod() {
+	WebDriver driver=new ChromeDriver();
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	driver.get("https://Google.com/");
+	String expectedTitle="Google";
+	String ActualTitle=driver.getTitle();
+	
+	//Hart Assertion
+	Assert.assertEquals(ActualTitle, expectedTitle);//if it is failed then it will not executing the below code
+	
+	if(ActualTitle.equals(expectedTitle)) {
+		System.out.println("passed");
+	}else {
+		System.out.println("failed");
+	}
+	
+	Assert.assertTrue(expectedTitle.equals(ActualTitle), "comparing the title");//it will show in report
+	
+	Assert.assertFalse(!(expectedTitle.equals(ActualTitle)));
+	
+	Assert.assertEquals(expectedTitle.equals(ActualTitle),true);//it expected true
+	
+	Assert.assertEquals(expectedTitle.equals(ActualTitle),false);//it expected false
+}
+}

@@ -1,0 +1,164 @@
+package POMObjectRepository;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class CandidatesPage {
+
+    private WebDriver driver;
+
+    public CandidatesPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    // WebElements
+
+    @FindBy(xpath="//label[.='Job Title']/../../child::div[.='-- Select --']")
+    private WebElement jobTitle;
+
+    @FindBy(xpath="//label[.='Vacancy']/../../child::div[.='-- Select --']")
+    private WebElement vacancy;
+
+    @FindBy(xpath="//label[.='Hiring Manager']/../../child::div[.='-- Select --']")
+    private WebElement hiringManager;
+
+    @FindBy(xpath="//label[.='Status']/../../child::div[.='-- Select --']")
+    private WebElement status;
+
+    @FindBy(xpath="//label[.='Candidate Name']/../../child::div/descendant::input")
+    private WebElement candidateName;
+
+    @FindBy(xpath="//label[.='Date of Application']/../../child::div/descendant::input")
+    private WebElement dateFrom;
+
+    @FindBy(xpath="//input[@placeholder='To']")
+    private WebElement dateTo;
+
+    @FindBy(xpath="//label[.='Method of Application']/../../descendant::div[.='-- Select --' and @class='oxd-select-text-input']")
+    private WebElement methodOfApplication;
+
+    @FindBy(xpath="//button[.=' Reset ']")
+    private WebElement reset;
+
+    @FindBy(xpath="//button[.=' Search ']")
+    private WebElement search;
+
+    @FindBy(xpath="//button[.=' Add ']")
+    private WebElement add;
+
+    
+    //  GETTERS
+
+    public WebElement getJobTitle() { return jobTitle; }
+    public WebElement getVacancy() { return vacancy; }
+    public WebElement getHiringManager() { return hiringManager; }
+    public WebElement getStatus() { return status; }
+    public WebElement getCandidateName() { return candidateName; }
+    public WebElement getDateFrom() { return dateFrom; }
+    public WebElement getDateTo() { return dateTo; }
+    public WebElement getMethodOfApplication() { return methodOfApplication; }
+    public WebElement getReset() { return reset; }
+    public WebElement getSearch() { return search; }
+    public WebElement getAdd() { return add; }
+
+    
+    //  SETTERS (using getters)
+    
+
+    public void setJobTitleClick() { getJobTitle().click(); }
+    public void setVacancyClick() { getVacancy().click(); }
+    public void setHiringManagerClick() { getHiringManager().click(); }
+    public void setStatusClick() { getStatus().click(); }
+
+    public void setCandidateName(String name) {
+        getCandidateName().clear();
+        getCandidateName().sendKeys(name);
+    }
+
+    public void setDateFrom(String fromDate) {
+        getDateFrom().clear();
+        getDateFrom().sendKeys(fromDate);
+    }
+
+    public void setDateTo(String toDate) {
+        getDateTo().clear();
+        getDateTo().sendKeys(toDate);
+    }
+
+    public void setMethodOfApplicationClick() { getMethodOfApplication().click(); }
+    public void setResetClick() { getReset().click(); }
+    public void setSearchClick() { getSearch().click(); }
+    public void setAddClick() { getAdd().click(); }
+
+    
+    //  BUSINESS LOGIC
+   
+
+    public void searchCandidate(String name, String fromDate, String toDate) {
+        setCandidateName(name);
+        setDateFrom(fromDate);
+        setDateTo(toDate);
+        setSearchClick();
+    }
+
+    public void resetSearch() {
+        setResetClick();
+    }
+
+    public void addCandidate() {
+        setAddClick();
+    }
+
+    public void selectJobTitle() {
+        setJobTitleClick();
+    }
+
+    public void selectVacancy() {
+        setVacancyClick();
+    }
+
+    public void selectHiringManager() {
+        setHiringManagerClick();
+    }
+
+    public void selectStatus() {
+        setStatusClick();
+    }
+
+    public void selectMethodOfApplication() {
+        setMethodOfApplicationClick();
+    }
+	By empList = By.xpath("//div[@role='row']//div[3]");
+	By nextBtn = By.xpath("//child::i[@class='oxd-icon bi-chevron-right']/parent::button");
+
+	public boolean listEmployeeButton(String empname) {
+
+	    while (true) {
+	    	//list of candidate name
+	        List<WebElement> empnamelist = driver.findElements(empList);
+	        for (WebElement emp : empnamelist) {
+	            String text = emp.getText().trim();
+	            if (text.contains(empname)) {
+	            	System.out.println("Employee Name: " + text);
+	                return true;
+	            }
+	        }
+	        // check next button
+	       
+	        List<WebElement> nextList = driver.findElements(nextBtn);
+	        if (nextList.size() > 0 && nextList.get(0).isEnabled()) {//every time the list contain 1 webelement then why list means
+	        	//when move to last page the element not present so it shows no such element exception instead we use list to void exception
+	            nextList.get(0).click();
+	        } else {
+	            break;
+	        }
+	    }
+	    return false;
+	}
+}

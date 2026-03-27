@@ -1,0 +1,90 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+import GenericUtility.ActionUtility;
+
+public class RecruitmentPage {
+
+	public WebDriver driver;
+
+	public RecruitmentPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath="//button[.=' Add ']")
+	private WebElement recruitmentAdd;
+
+	@FindBy(xpath="//a[.='Candidates']")
+	private WebElement candidates; 
+
+	@FindBy(xpath="//a[.='Vacancies']")
+	private WebElement vacancies;
+
+	@FindBy(xpath="//button[.=' Add ']")
+	private WebElement add;
+
+	// GETTERS 
+
+	public WebElement getRecruitmentAdd() {
+		return recruitmentAdd;
+	}
+
+	public WebElement getCandidates() {
+		return candidates;
+	}
+
+	public WebElement getVacancies() {
+		return vacancies;
+	}
+
+	public WebElement getAdd() {
+		return add;
+	}
+
+	// SETTERS 
+
+	public void setRecruitmentAdd() {
+		recruitmentAdd.click();
+	}
+
+	public void setCandidates() {
+		candidates.click();
+	}
+
+	public void setVacancies() {
+		vacancies.click();
+	}
+
+	public void setAdd() {
+		add.click();
+	}
+
+	// BUSINESS LOGIC 
+
+	// Navigate to Candidates page
+	public void clickCandidates() {
+		candidates.click();
+	}
+
+	// Navigate to Vacancies page
+	public void clickVacancies() {
+		vacancies.click();
+	}
+
+	ActionUtility act=new ActionUtility(driver);
+	// Click Add button in Recruitment
+	public void clickAdd(WebElement a) {
+		act.click(a);
+	}
+
+	// Complete flow example
+	public void navigateToAddVacancy() {
+		vacancies.click();
+		add.click();
+	}
+}

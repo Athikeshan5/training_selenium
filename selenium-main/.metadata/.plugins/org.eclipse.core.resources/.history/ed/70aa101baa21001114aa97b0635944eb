@@ -1,0 +1,155 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class AddEmployee {
+	public WebDriver driver;
+	public AddEmployee(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+
+@FindBy(name="firstName")
+private WebElement empFirstname;
+
+@FindBy(name="middleName")
+private WebElement empLastname;
+
+@FindBy(name="lastName")
+private WebElement empmiddlename;
+
+@FindBy(xpath="//label[.='Employee Id']/../..//input[@class='oxd-input oxd-input--active']")
+private WebElement EmpId;
+
+@FindBy(css="[class='oxd-switch-input oxd-switch-input--active --label-right']")
+private WebElement CreateLoginDetail;
+
+@FindBy(xpath="//label[.='Username']/../..//input[@class='oxd-input oxd-input--active']")
+private WebElement username;
+
+@FindBy(xpath="//label[.='Password']/../..//input[@class='oxd-input oxd-input--active']")
+private WebElement password;
+
+@FindBy(xpath="//label[.='Enabled']//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input']")
+private WebElement Enable;
+
+@FindBy(xpath="//label[.='Disabled']//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input']")
+private WebElement disable;
+
+@FindBy(xpath="//label[.='Confirm Password']/../..//input[@class='oxd-input oxd-input--active']")
+private WebElement confirmpassword;
+
+@FindBy(xpath="//button[.=' Cancel ']")
+private WebElement cancel;
+
+@FindBy(xpath="//button[.=' Save ']")
+private WebElement save;
+
+@FindBy(xpath="//a[@href='http://www.orangehrm.com']")
+private WebElement OrangeHRM;
+
+public WebElement getEmpFirstname() {
+	return empFirstname;
+}
+
+public void setEmpFirstname(String empFirstname) {
+	getEmpFirstname().sendKeys(empFirstname);
+}
+
+public WebElement getEmpLastname() {
+	return empLastname;
+}
+
+public void setEmpLastname(String empLastname) {
+	getEmpLastname().sendKeys( empLastname);
+}
+
+public WebElement getEmpmiddlename() {
+	return empmiddlename;
+}
+
+public void setEmpmiddlename(String empmiddlename) {
+	getEmpmiddlename().sendKeys(empmiddlename);
+}
+
+public WebElement getEmpId() {
+	
+	return EmpId;
+}
+
+public void setEmpId(String empId) {
+	getEmpId().sendKeys(Keys.CONTROL+"A",Keys.DELETE);
+	getEmpId().sendKeys(empId);
+}
+
+public WebElement getUsername() {
+	return username;
+}
+
+public void setUsername(String username) {
+	getUsername().sendKeys(username);
+}
+
+public WebElement getPassword() {
+	return password;
+}
+
+public void setPassword(String password) {
+	getPassword().sendKeys(password);
+}
+
+public WebElement getConfirmpassword() {
+	return confirmpassword;
+}
+
+public void setConfirmpassword(String confirmpassword) {
+	getConfirmpassword().sendKeys(confirmpassword);
+}
+
+public WebElement getCreateLoginDetail() {
+	return CreateLoginDetail;
+}
+
+public WebElement getEnable() {
+	return Enable;
+}
+
+public WebElement getDisable() {
+	return disable;
+}
+
+public WebElement getCancel() {
+	return cancel;
+}
+
+public WebElement getSave() {
+	return save;
+}
+public WebElement getOrangeHRM() {
+	  return OrangeHRM;
+}
+
+
+//bussiness logic
+public void createEmployee(String firstname,String lastname,String middlename,String EmpId) {
+	setEmpFirstname(firstname);
+	setEmpmiddlename(middlename);
+	setEmpLastname(lastname);
+	setEmpId(EmpId);
+	getCreateLoginDetail().click();
+	
+}
+
+public void EmployeeCredetionals(String username,String password,String confirmpassword) {
+	getEnable().click();
+	setUsername(username);
+	setPassword(password);
+	setConfirmpassword(confirmpassword);
+	getSave().click();
+}
+}

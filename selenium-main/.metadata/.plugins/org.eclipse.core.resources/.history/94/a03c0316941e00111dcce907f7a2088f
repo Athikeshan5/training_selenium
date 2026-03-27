@@ -1,0 +1,91 @@
+package pim.module;
+
+import java.time.Duration;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Parameters;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class TerminationReason {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	@Parameters("browser")
+	public void launchbrowser(String browser) {
+		if(browser.equals("edge")) {
+			driver=new EdgeDriver();
+		}
+		else if(browser.equals("chrome")) {
+			driver=new ChromeDriver();
+		}
+		else if(browser.equals("firefox")) {
+			driver=new FirefoxDriver();
+		}
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void pimemployeereason() throws InterruptedException {
+		//pim module click
+		driver.findElement(By.xpath("//span[.='PIM']/..//*[name()='svg']")).click();
+		// click configuration dropdown
+		WebElement configuration=driver.findElement(By.xpath("//span[@class='oxd-topbar-body-nav-tab-item' and .='Configuration ']"));
+		configuration.click();
+	    //click on Termination reasons
+        driver.findElement(By.xpath("//li[.='Termination Reasons']")).click();
+        
+        //add
+        driver.findElement(By.xpath("//button[.=' Add ']")).click();
+        
+        //enter a reason in name input field
+        driver.findElement(By.xpath("//label[.='Name']/../..//input[@class='oxd-input oxd-input--active']")).sendKeys("illsss");
+        //click on save button
+        driver.findElement(By.cssSelector("[type='submit']")).click();
+
+        Thread.sleep(5000);
+      //verify reason 
+        List<WebElement> verify=driver.findElements(By.xpath("//div[@role='row']//div[2]"));
+        SoftAssert as = new SoftAssert();
+        String expected = "illsss";
+
+        boolean found = false;
+
+        for(WebElement e : verify){
+            if(e.getText().equals(expected)){
+                found = true;
+                break;
+            }
+        }
+
+        as.assertTrue(found, "No reason present");
+        System.out.println("verified successfully");
+        as.assertAll();
+        
+	}
+	
+	
+	
+	@Test(priority = 4,dependsOnMethods = "login")
+	public void logout() {
+		 WebElement logout=driver.findElement(By.cssSelector("[class='oxd-icon bi-caret-down-fill oxd-userdropdown-icon']"));
+		    logout.click();
+		    driver.findElement(By.partialLinkText("Logout")).click();
+		
+	}
+}

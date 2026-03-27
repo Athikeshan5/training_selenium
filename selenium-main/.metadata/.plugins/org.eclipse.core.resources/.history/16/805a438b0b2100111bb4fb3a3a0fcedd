@@ -1,0 +1,125 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class PIMPage {
+public WebDriver driver;
+public PIMPage(WebDriver driver) {
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+}
+@FindBy(xpath="//span[.='Configuration ']")
+WebElement configuration;
+
+@FindBy(xpath="//a[.='Optional Fields']")
+WebElement optioanalFields;
+
+@FindBy(xpath="//a[.='Custom Fields']")
+WebElement customFields;
+
+@FindBy(xpath="//a[.='Data Import']")
+WebElement dataImport;
+
+@FindBy(xpath="//a[.='Reporting Methods']")
+WebElement ReportingMethods;
+
+@FindBy(xpath="//a[.='Termination Reasons']")
+WebElement TerminationReasons;
+
+@FindBy(xpath="//a[.='Employee List']")
+WebElement EmployeeList;
+
+@FindBy(xpath="//a[.='Add Employee']")
+WebElement addEmployee;
+
+@FindBy(xpath="//a[.='Reports']")
+WebElement reports;
+
+@FindBy(css="[class='oxd-icon bi-caret-up-fill']")
+WebElement EmpInfoDropDown;
+
+@FindBy(xpath="//label[.='Employee Name']/following::input[1]")
+WebElement EmployeeName;
+
+@FindBy(xpath="//label[.='Employee Id']/following::input[1]")
+WebElement EmployeeId;
+
+@FindBy(xpath="//label[.='Employment Status']/following::div[1]")
+WebElement EmploymentStatus;
+
+@FindBy(xpath="//div[.='Current Employees Only' and @class='oxd-select-text-input']")
+WebElement Include;
+
+@FindBy(xpath="//div[.='Supervisor Name']/following::input[@placeholder='Type for hints...']")
+WebElement supervisorname;
+
+@FindBy(xpath="//div[.='Job Title']/..//div[@class='oxd-select-text-input']")
+WebElement JobTitle;
+
+@FindBy(xpath="//div[.='Sub Unit']/..//div[@class='oxd-select-text-input']")
+WebElement subunit;
+
+@FindBy(xpath="//button[.=' Reset ']")
+WebElement reset;
+
+@FindBy(xpath="//button[.=' Search ']")
+WebElement search;
+
+@FindBy(xpath="//button[.=' Add ']")
+WebElement add;
+
+@FindBy(name="firstName")
+WebElement empFirstname;
+
+@FindBy(name="middleName")
+WebElement empLastname;
+
+@FindBy(name="lastName")
+WebElement empmiddlename;
+
+@FindBy(xpath="//label[.='Employee Id']/../..//input[@class='oxd-input oxd-input--active']")
+WebElement EmpId;
+
+@FindBy(css="[class='oxd-switch-input oxd-switch-input--active --label-right']")
+WebElement CreateLoginDetail;
+
+@FindBy(xpath="//label[.='Username']/../..//input[@class='oxd-input oxd-input--active']")
+WebElement username;
+
+@FindBy(xpath="//label[.='Password']/../..//input[@class='oxd-input oxd-input--active']")
+WebElement password;
+
+@FindBy(xpath="//label[.='Enabled']//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input']")
+WebElement Enable;
+
+@FindBy(xpath="//label[.='Disabled']//span[@class='oxd-radio-input oxd-radio-input--active --label-right oxd-radio-input']")
+WebElement disable;
+
+@FindBy(xpath="//label[.='Confirm Password']/../..//input[@class='oxd-input oxd-input--active']")
+WebElement confirmpassword;
+
+@FindBy(xpath="//button[.=' Cancel ']")
+WebElement cancel;
+
+@FindBy(xpath="//button[.=' Save ']")
+WebElement save;
+
+@FindBy(xpath="//input[@placeholder='Type for hints...']")
+WebElement Reportname;
+
+@FindBy(xpath="//button[.=' Reset ']")
+WebElement Reportreset;
+
+@FindBy(xpath="//button[.=' Search ']")
+WebElement Reportsearch;
+
+@FindBy(xpath="//button[.=' Add ']")
+WebElement Reportadd;
+
+
+
+
+}

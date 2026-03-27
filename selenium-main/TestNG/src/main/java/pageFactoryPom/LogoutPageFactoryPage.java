@@ -1,0 +1,32 @@
+package pageFactoryPom;
+
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LogoutPageFactoryPage {
+    WebDriver driver;
+    public LogoutPageFactoryPage(WebDriver driver) {
+    	this.driver=driver;
+    	PageFactory.initElements(driver, this);
+    	//it automatically initialize the webElement variable
+    	//we need to call pagefactory class to achieve lazy initialize the value to global variable
+    	//it helps to initialize the findBy webelement ref
+        //if we not use this it shows nullpointer exception
+    }
+    
+    @FindBy(xpath="//a[.='Logout']")
+    WebElement Log;
+    @FindBy(xpath="//button[.='Open Menu']")
+    WebElement Menu;
+    
+    //Logout
+    public void Logout() {
+	//click menu
+	Menu.click();
+	//logout button
+	Log.click();
+    }
+}

@@ -1,0 +1,51 @@
+package pim.module;
+
+
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import GenericUtility.BaseClass;
+import GenericUtility.WebDriverUtility;
+import POMObjectRepository.AddTerminationReasonPage;
+import POMObjectRepository.ConfigurationPage;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.PIMPage;
+import POMObjectRepository.TerminationReasons;
+
+public class AddTerminationReasonsAndVerifyTest extends BaseClass {
+
+	@Test(groups = {"smoke", "regression"})
+	public void testMethod() throws InterruptedException {
+
+         
+		// Dashboard → PIM
+		DashboardPage db = new DashboardPage(driver);
+		db.pimlink();
+
+		// PIM → Configuration → Termination Reasons
+		PIMPage p=new PIMPage(driver);
+		WebDriverUtility w=new WebDriverUtility(driver);
+		
+		p.clickConfiguration();
+		w.waitForSpecificElementsToclickable(p.getTerminationReasons(), 20L);
+         p.clickTerminationReasons();
+		// Click Add
+		TerminationReasons tp = new TerminationReasons(driver);
+		tp.clickAddBtn();
+
+		// Add Termination Reason
+		AddTerminationReasonPage at = new AddTerminationReasonPage(driver);
+        
+		String reason = "Summa dhan hello updated113";
+        w.waitForElementsToLoad(20L);
+		at.addTerminationReason(reason);
+	
+		// Verify
+		boolean result =tp.listEmployeeButton(reason) ;
+
+		SoftAssert sa=new SoftAssert();
+		sa.assertTrue(result,"termination reason not added");
+		sa.assertAll();
+		
+	}
+}

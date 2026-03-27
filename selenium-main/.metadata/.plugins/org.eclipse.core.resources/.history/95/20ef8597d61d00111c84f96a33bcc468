@@ -1,0 +1,38 @@
+package Assertion;
+
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class DemoSoftAssert {
+@Test(priority = 0)
+public void demoTest() {
+	String actualValue="PEC";
+	String expectedValue="PECC";
+	
+	SoftAssert sa=new SoftAssert();
+	sa.assertEquals(actualValue, expectedValue);
+	if(actualValue.equals(expectedValue)) {
+		System.out.println("pass");
+	}else {
+		System.out.println("failed");
+	}
+	//actually it is failed but soft assert return passed
+	//so we need to use assertall
+	sa.assertAll();
+	
+	
+}
+@Test(priority = 1)
+public void test2() {
+	String actualValue1="PEC";
+	String expectedValue1="PEC";
+	
+	SoftAssert sa1=new SoftAssert();
+	sa1.assertEquals(actualValue1, expectedValue1);
+	if(actualValue1.equals(expectedValue1)) {
+		System.out.println("pass");
+	}else {
+		System.out.println("failed");
+	}
+}
+}

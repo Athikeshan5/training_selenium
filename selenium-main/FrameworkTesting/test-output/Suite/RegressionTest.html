@@ -1,0 +1,480 @@
+<html>
+<head>
+<title>TestNG:  RegressionTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>RegressionTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Wed Mar 25 09:44:16 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (61 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td>regression </td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Priya, Devi, Iyer, priya.iyer@gmail.com, 9123456789, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-05</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace600414905", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace600414905'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddCandidateTest@5fa07e12</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_05, Tech Head, Chief Technical Officer, Oversee technical teams, Ranga  Akunuri, 3, Yes, Yes</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1772283041", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1772283041'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@55b53d44</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_01, QA Engineer, Automation Tester, Automation testing for web apps, Ranga  Akunuri, 2, Yes, Yes</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace54913201", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace54913201'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@55b53d44</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_04, CFO Role, Chief Financial Officer, Handle financial planning, Ranga  Akunuri, 1, No, No</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace644689832", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace644689832'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@55b53d44</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_03, CEO Position, Chief Executive Officer, Lead company operations, Ranga  Akunuri, 1, Yes, Yes</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace110585597", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace110585597'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@55b53d44</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Karthik, Subramani, Nair, karthik.nair@gmail.com, 9090909090, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-07</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace82363650", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace82363650'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddCandidateTest@5fa07e12</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_02, Finance Executive, Account Assistant, Manage accounts and invoices, Ranga  Akunuri, 1, Yes, No</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2035612184", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2035612184'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@55b53d44</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Ranjith, Kumar, A, ranjithkumar@gmail.com, 9842983401, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-03</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace526565535", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace526565535'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddCandidateTest@5fa07e12</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Arjun, Raj, Verma, arjun.verma@gmail.com, 9876543210, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-04</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1081667285", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1081667285'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddCandidateTest@5fa07e12</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Sneha, Lakshmi, Reddy, sneha.reddy@gmail.com, 9988776655, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-06</td>
+<td><div><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 11 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2007708980", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2007708980'><pre>java.lang.NullPointerException: Cannot invoke &quot;org.openqa.selenium.SearchContext.findElement(org.openqa.selenium.By)&quot; because &quot;this.searchContext&quot; is null
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy13.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at Recruitment.module.AddCandidateTest.testMethod(AddCandidateTest.java:34)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddCandidateTest@5fa07e12</td></tr>
+</table><p>
+</body>
+</html>

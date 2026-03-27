@@ -1,0 +1,68 @@
+package recruitment.module;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class AddRecruitmentEmployee {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	public void launchbrowser() {
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 2,dependsOnMethods = "login")
+	public void addRecruitment() {
+		//click Recruitment
+		driver.findElement(By.xpath("//span[.='Recruitment']")).click();
+	    //add employee
+		driver.findElement(By.xpath("//button[.=' Add ']")).click();
+	    //firstname
+		driver.findElement(By.name("firstName")).sendKeys("ramana");
+	    //middlename
+		driver.findElement(By.name("middleName")).sendKeys("sekar");
+	    //lastname
+		driver.findElement(By.name("lastName")).sendKeys("k");
+	    //vacancy
+		WebElement vacancy = driver.findElement(By.cssSelector("[class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']"));
+		Actions act=new Actions(driver);
+		act.click(vacancy).pause(1000).sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER).perform();
+		
+		//email
+		driver.findElement(By.xpath("label[.='Email']/../..//input']/../..//input")).sendKeys("ramana4@gmail.com");
+		//phone number
+		driver.findElement(By.xpath("//label[.='Contact Number']/../..//input']/../..//input")).sendKeys("1234567890");
+		//upload file
+		WebElement file=driver.findElement(By.cssSelector("[type='file']"));
+		file.sendKeys("C:\\Users\\venka\\Downloads\\UG Project Report Format modified.docx");
+		//date for application
+		WebElement date = driver.findElement(By.cssSelector("[placeholder='yyyy-dd-mm']"));
+		date.click();
+		date.clear();
+		date.sendKeys("2022-14-12");
+		//save
+		driver.findElement(By.cssSelector("[type='submit']")).click();
+		
+		//click candidate
+		driver.findElement(By.cssSelector("//a[.='Candidates']")).click();
+		//job title
+		WebElement title=driver.findElement(By.xpath("//label[.='Job Title']/../..//div[@class='oxd-select-text-input' and @tabindex='0']"));
+		title.click();
+		title.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER);
+	}
+}

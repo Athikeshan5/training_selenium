@@ -1,0 +1,600 @@
+<html>
+<head>
+<title>TestNG:  SmokeTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>SmokeTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>5/5/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Mar 26 09:52:10 IST 2026</td>
+</tr>
+<tr><td>Total time:</td><td>71 seconds (71646 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.afterClass()'><b>afterClass</b><br>Test class: Recruitment.module.AddVacancyTest</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=[alt=&apos;profile picture&apos;], using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setProfileClick(DashboardPage.java:110)
+	at POMObjectRepository.DashboardPage.profileClick(DashboardPage.java:126)
+	at GenericUtility.BaseClass.afterClass(BaseClass.java:74)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 13 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1962713283", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1962713283'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=[alt=&apos;profile picture&apos;], using=css selector}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setProfileClick(DashboardPage.java:110)
+	at POMObjectRepository.DashboardPage.profileClick(DashboardPage.java:126)
+	at GenericUtility.BaseClass.afterClass(BaseClass.java:74)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethodConsideringTimeout(MethodInvocationHelper.java:71)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurationMethod(ConfigInvoker.java:400)
+	at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:333)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassConfigurations(TestMethodWorker.java:238)
+	at org.testng.internal.invokers.TestMethodWorker.invokeAfterClassMethods(TestMethodWorker.java:223)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:137)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_04, CFO Role, Chief Financial Officer, Handle financial planning, Ranga  Akunuri, 1, No, No</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace130405094", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace130405094'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_01, QA Engineer, Automation Tester, Automation testing for web apps, Ranga  Akunuri, 2, Yes, Yes</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[.=&apos;Vacancies&apos;]&quot;}
+  (Session info: MicrosoftEdge=146.0.3856.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//a[.=&apos;Vacancies&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.RecruitmentPage.clickVacancies(RecruitmentPage.java:76)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:40)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1832168720", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1832168720'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[.=&apos;Vacancies&apos;]&quot;}
+  (Session info: MicrosoftEdge=146.0.3856.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//a[.=&apos;Vacancies&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.RecruitmentPage.clickVacancies(RecruitmentPage.java:76)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:40)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>23</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_03, CEO Position, Chief Executive Officer, Lead company operations, Ranga  Akunuri, 1, Yes, Yes</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: MicrosoftEdge=146.0.3856.72)
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1830866984", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1830866984'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id: session deleted as the browser has closed the connection
+from disconnected: unable to send message to renderer
+  (Session info: MicrosoftEdge=146.0.3856.72)
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>13</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_05, Tech Head, Chief Technical Officer, Oversee technical teams, Ranga  Akunuri, 3, Yes, Yes</td>
+<td><div><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1195221700", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1195221700'><pre>org.openqa.selenium.NoSuchSessionException: invalid session id
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>0</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+<tr>
+<td title='Recruitment.module.AddVacancyTest.addVacancy()'><b>addVacancy</b><br>Test class: Recruitment.module.AddVacancyTest<br>Parameters: TC_02, Finance Executive, Account Assistant, Manage accounts and invoices, Ranga  Akunuri, 1, Yes, No</td>
+<td><div><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;]&quot;}
+  (Session info: MicrosoftEdge=146.0.3856.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+... Removed 14 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace944555511", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace944555511'><pre>org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;]&quot;}
+  (Session info: MicrosoftEdge=146.0.3856.72)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#nosuchelementexception
+Build info: version: &apos;4.38.0&apos;, revision: &apos;6b412e825c*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;23.0.1&apos;
+Driver info: org.openqa.selenium.edge.EdgeDriver
+Command: [7dcf88e55a60ed7758342cfe206cc2d8, findElement {value=//*[name()=&apos;svg&apos;]/..//span[.=&apos;Recruitment&apos;], using=xpath}]
+Capabilities {acceptInsecureCerts: false, browserName: MicrosoftEdge, browserVersion: 146.0.3856.72, fedcm:accounts: true, goog:processID: 908, ms:edgeOptions: {debuggerAddress: localhost:52929}, msedge: {msedgedriverVersion: 146.0.3856.78 (036e00227783..., userDataDir: C:\Users\ATHIKE~1\AppData\L...}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:52929/devtoo..., se:cdpVersion: 146.0.3856.72, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 7dcf88e55a60ed7758342cfe206cc2d8
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:215)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:557)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:380)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:374)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy18.click(Unknown Source)
+	at POMObjectRepository.DashboardPage.setRecruitmentClick(DashboardPage.java:116)
+	at POMObjectRepository.DashboardPage.Recruitmentlink(DashboardPage.java:122)
+	at Recruitment.module.AddVacancyTest.addVacancy(AddVacancyTest.java:39)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:687)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
+	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:995)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:203)
+	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:154)
+	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:134)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at org.testng.internal.thread.graph.TestNGFutureTask.run(TestNGFutureTask.java:22)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+</pre></div></td>
+<td>20</td>
+<td>Recruitment.module.AddVacancyTest@13b3d178</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Priya, Devi, Iyer, priya.iyer@gmail.com, 9123456789, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-05</td>
+<td></td>
+<td>9</td>
+<td>Recruitment.module.AddCandidateTest@1c39680d</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Sneha, Lakshmi, Reddy, sneha.reddy@gmail.com, 9988776655, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-06</td>
+<td></td>
+<td>9</td>
+<td>Recruitment.module.AddCandidateTest@1c39680d</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Ranjith, Kumar, A, ranjithkumar@gmail.com, 9842983401, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-03</td>
+<td></td>
+<td>13</td>
+<td>Recruitment.module.AddCandidateTest@1c39680d</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Arjun, Raj, Verma, arjun.verma@gmail.com, 9876543210, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-04</td>
+<td></td>
+<td>10</td>
+<td>Recruitment.module.AddCandidateTest@1c39680d</td></tr>
+<tr>
+<td title='Recruitment.module.AddCandidateTest.testMethod()'><b>testMethod</b><br>Test class: Recruitment.module.AddCandidateTest<br>Parameters: Karthik, Subramani, Nair, karthik.nair@gmail.com, 9090909090, C:\\Users\\Athikeshan\\Downloads\\conferencepaper2026.pdf, 2024-03-07</td>
+<td></td>
+<td>11</td>
+<td>Recruitment.module.AddCandidateTest@1c39680d</td></tr>
+</table><p>
+</body>
+</html>

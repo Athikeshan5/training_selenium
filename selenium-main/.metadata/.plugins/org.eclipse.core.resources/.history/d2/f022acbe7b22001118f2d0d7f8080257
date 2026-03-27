@@ -1,0 +1,26 @@
+package Demo;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.testng.annotations.Test;
+
+public class excelDataRead {
+@Test
+public void demo() throws EncryptedDocumentException, IOException {
+	FileInputStream fs=new FileInputStream("./src/test/resources/orangehrmTestScriptData/vacancyTestScriptData.xlsx");
+    Workbook workbook=WorkbookFactory.create(fs);//apache poi to convert the data for java compiler to understand
+    Sheet Sheet=workbook.getSheet("addVacancy");//sheet interface
+    Row row=Sheet.getRow(1);//index starts from zero row interface
+    Cell cells= row.getCell(1);//index starts from zero in cell 
+    String vacancyName=cells.getStringCellValue();
+    System.out.println(vacancyName);
+
+}
+}

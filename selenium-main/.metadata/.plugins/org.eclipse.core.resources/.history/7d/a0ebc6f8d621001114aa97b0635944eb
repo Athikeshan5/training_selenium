@@ -1,0 +1,21 @@
+package Demo;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.testng.annotations.Test;
+
+public class practice {
+@Test
+public void readdata() throws IOException {
+	//convert java understandable code file
+	FileInputStream fs=new FileInputStream("./src/test/resources/orangehrmCommonData/parameterizaionPropertiesFile.properties");
+	//pass the compiler to understand key value pair data
+	Properties prop=new Properties();
+	prop.load(fs);
+	
+	String urls=prop.getProperty("url");
+	System.out.println(urls);
+}
+}

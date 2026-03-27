@@ -1,0 +1,52 @@
+package GenericUtility;
+
+import java.math.BigDecimal;
+import java.time.Duration;
+import java.util.Calendar;
+
+
+import javax.xml.datatype.DatatypeConstants.Field;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
+public class ActionUtility {
+     public WebDriver driver;
+	Actions act;
+	public ActionUtility(WebDriver driver) {
+		this.driver=driver;
+		this.act = new Actions(driver);
+	}
+	public void Actionclick(WebElement ele){
+		
+		act.click(ele).perform();
+	}
+	public void ActionSendKeysofdata(String data) {
+		
+		act.sendKeys(data).perform();
+	}
+	public void pause(long sec) {
+	
+		act.pause(sec).perform();
+	}
+	public void movetoelementtotargetplace(WebElement ele) {
+		
+		act.clickAndHold(ele).perform();
+	}
+	public void navigateDownDropDown(WebElement ele, int index, int sec) {
+	    
+
+	    act.click(ele).pause(Duration.ofSeconds(sec)).perform();
+
+	    for (int i = 0; i < index; i++) {
+	        act.sendKeys(Keys.DOWN)
+	           .pause(Duration.ofSeconds(3000))
+	           .perform();
+	    }
+
+	    act.sendKeys(Keys.ENTER).perform();
+	}
+	
+}

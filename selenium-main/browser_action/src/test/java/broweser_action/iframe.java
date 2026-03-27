@@ -1,0 +1,30 @@
+package broweser_action;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class iframe {
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver=new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		driver.get("https://demo.automationtesting.in/Frames.html");
+		
+		//iframe switching by index
+		//iframe window inside window so switchto inner window
+		//driver.switchTo().frame(0);
+		//driver.findElement(By.xpath("//input[@type='text' ]")).sendKeys("hello");
+		
+		//iframe switch by name or id
+		//driver.switchTo().frame("singleframe");//id locator or name locator
+		//driver.findElement(By.xpath("//input[@type='text']")).sendKeys("world");
+		
+		WebElement we=driver.findElement(By.id("singleframe"));
+		driver.switchTo().frame(we);
+		driver.findElement(By.xpath("//input[@type='text']")).sendKeys("hello");
+	}
+}

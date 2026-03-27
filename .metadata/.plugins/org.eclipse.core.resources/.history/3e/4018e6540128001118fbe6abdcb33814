@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="classes" thread-count="5">
+  <test name="SmokeTest">
+  <parameter name="browser" value="chrome"/>
+  <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Recruitment.module.AddCandidateTest"/>
+      <class name="Recruitment.module.AddVacancyTest"/>
+    </classes>
+  </test>
+  
+  <test name="RegressionTest">
+  <parameter name="browser" value="chrome"/>
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="Recruitment.module.AddCandidateTest"/>
+      <class name="Recruitment.module.AddVacancyTest"/>
+    </classes>
+  </test>
+</suite>

@@ -1,0 +1,60 @@
+package Recruitment.module;
+
+import java.io.IOException;
+
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import GenericUtility.BaseClass;
+import GenericUtility.ExcelUtility;
+import GenericUtility.WebDriverUtility;
+import POMObjectRepository.AddCandidatePage;
+import POMObjectRepository.CandidatesPage;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.RecruitmentPage;
+
+
+
+public class AddCandidateTest extends BaseClass {
+	
+	 @DataProvider(name = "candidateData")
+	    public Object[][] getData() throws IOException {
+	        ExcelUtility eu = new ExcelUtility("./src/test/resources/orangehrmTestScriptData/ADDCANDIDATE.xlsx");
+	        return eu.getSheetData("Sheet1");
+	    }
+
+	    @Test(dataProvider = "candidateData")
+	public void testMethod(String fname, String mname, String lname, String mail, String contactNo, String resume,
+            String dateValue) throws InterruptedException {
+
+		// Dashboard → Recruitment
+		DashboardPage db = new DashboardPage(driver);
+		db.setRecruitmentClick();
+
+		// Recruitment → Add Candidate
+		RecruitmentPage rc = new RecruitmentPage(driver);
+		rc.clickAdd();
+
+		// Add Candidate Page
+		AddCandidatePage ac = new AddCandidatePage(driver);
+		WebDriverUtility w=new WebDriverUtility(driver);
+		w.waitForSpecificElementsTovisible(ac.getFirstName(),20L);
+		w.waitForSpecificElementsTovisible(ac.getDate(),20L);
+		w.waitForSpecificElementsTovisible(ac.getResumeUpload(),20L);
+		ac.addCandidate(fname, mname, lname,  mail, contactNo, resume,dateValue);
+
+		// Go to Candidates page
+		rc.clickCandidates();
+
+		// Verify Candidate
+		CandidatesPage cp = new CandidatesPage(driver);
+
+		boolean s=cp.listEmployeeButton(fname);
+		SoftAssert sa=new SoftAssert();
+		sa.assertTrue(s,"no results found");
+		sa.assertAll();
+
+	}
+}

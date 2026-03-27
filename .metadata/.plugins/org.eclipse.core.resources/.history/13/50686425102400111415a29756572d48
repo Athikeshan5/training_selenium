@@ -1,0 +1,47 @@
+package jsoninsteadpom;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.Duration;
+import java.util.Properties;
+
+import org.json.JSONObject;
+import org.json.JSONTokener;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.json.Json;
+import org.testng.annotations.Test;
+
+public class demologinTest {
+    WebDriver driver;
+
+    @Test
+    public void demo() throws IOException {
+
+//        FileInputStream fs = new FileInputStream(
+//            "D:\\testing_selenium\\FrameworkTesting\\src\\main\\resources\\objectRepository\\loginpage.json"
+//        );
+//         //reading the json file  convert to string
+//        JSONTokener jt = new JSONTokener(fs);
+    	String data=new String(Files.readAllBytes(Paths.get("D:\\\\testing_selenium\\\\FrameworkTesting\\\\src\\\\main\\\\resources\\\\objectRepository\\\\loginpage.json")));
+    	
+        //convert json object
+        JSONObject obj = new JSONObject(data);
+        //get the json data object
+        JSONObject loginlogic = obj.getJSONObject("login");
+
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+System.out.println(loginlogic.get("user"));
+        driver.findElement(By.name(loginlogic.getString("user").split(":")[1])).sendKeys("Admin");
+        driver.findElement(By.name(loginlogic.getString("pass").split(":")[1])).sendKeys("admin123");
+        driver.findElement(By.cssSelector(loginlogic.getString("login").split(":")[1])).click();
+}
+   
+}

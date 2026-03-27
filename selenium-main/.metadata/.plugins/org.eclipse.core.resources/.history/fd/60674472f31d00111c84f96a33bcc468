@@ -1,0 +1,51 @@
+package com.orangehrm.testng.myinfo;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class MyInfoEmployee {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	public void launchbrowser() {
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void addMyinfoEmployee() throws InterruptedException {
+		//click Myinfo link
+		driver.findElement(By.xpath("//span[.='My Info']")).click();
+		//Adding Info
+		//firstname
+		Thread.sleep(5000);
+		WebElement firstname=driver.findElement(By.cssSelector("[name='firstName']"));
+	    firstname.sendKeys(Keys.CONTROL+"A",Keys.DELETE);
+	    firstname.sendKeys("ram",Keys.ENTER);
+	    
+	    //lastname
+	    Thread.sleep(5000);
+	    WebElement lastname=driver.findElement(By.name("lastName"));
+	    lastname.sendKeys(Keys.CONTROL+"A",Keys.DELETE);
+	    lastname.sendKeys("raj",Keys.ENTER);	
+	    
+	    //employee id
+	    Thread.sleep(5000);
+	    WebElement empid=driver.findElement(By.xpath("//label[.='Employee Id']/../..//input[@class='oxd-input oxd-input--active']"));
+	    empid.sendKeys(Keys.CONTROL+"A",Keys.DELETE);
+	    empid.sendKeys("12345",Keys.ENTER);
+	}
+}

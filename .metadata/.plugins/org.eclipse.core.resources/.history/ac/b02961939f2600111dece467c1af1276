@@ -1,0 +1,182 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class AddVacanciesPage {
+
+	public WebDriver driver;
+
+	public AddVacanciesPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	@FindBy(xpath="//label[.='Vacancy Name']/../../child::div/input")
+	private WebElement vacancyname;
+
+	@FindBy(xpath="//label[.='Description']/../../child::div/textarea")
+	private WebElement description;
+
+	@FindBy(xpath="//label[text()='Hiring Manager']/ancestor::div[contains(@class,'oxd-input-group')]//input")
+	private WebElement hiringManager;
+	
+	@FindBy(xpath="//label[.='Status']/../../child::div[.='-- Select --']")
+	private WebElement status;
+
+	@FindBy(xpath="//label[text()='Job Title']/following::div[contains(@class,'oxd-select-text')][1]")
+	private WebElement jobtitle;
+
+	@FindBy(xpath="//label[.='Number of Positions']/../../child::div/input")
+	private WebElement noofpositions;
+
+	@FindBy(xpath="//p[.='Active']/..//input")
+	private WebElement active;
+
+	@FindBy(xpath="//p[.='Publish in RSS Feed and Web Page']/..//input")
+	private WebElement publish;
+
+	@FindBy(xpath="//button[.=' Cancel ']")
+	private WebElement cancel;
+
+	@FindBy(xpath="//button[.=' Save ']")
+	private WebElement save;
+
+	// ---------------- GETTERS ----------------
+
+	public WebElement getVacancyname() {
+		return vacancyname;
+	}
+
+	public WebElement getDescription() {
+		return description;
+	}
+
+	public WebElement getHiringManager() {
+		return hiringManager;
+	}
+
+	public WebElement getStatus() {
+		return status;
+	}
+
+	public WebElement getJobtitle() {
+		return jobtitle;
+	}
+
+	public WebElement getNoofpositions() {
+		return noofpositions;
+	}
+
+	public WebElement getActive() {
+		return active;
+	}
+
+	public WebElement getPublish() {
+		return publish;
+	}
+
+	public WebElement getCancel() {
+		return cancel;
+	}
+
+	public WebElement getSave() {
+		return save;
+	}
+
+	// ---------------- BUSINESS LOGIC ----------------
+
+	public void enterVacancyName(String name) {
+		setVacancyname(name);
+	}
+
+	public void enterDescription(String desc) {
+		setDescription(desc);
+	}
+
+	public void enterNumberOfPositions(int number) {
+		setNoofpositions(number);
+	}
+
+	public void clickActive() {
+		getActive().click();
+	}
+
+	public void clickPublish() {
+		getPublish().click();
+	}
+
+	public void clickSave() {
+		getSave().click();
+	}
+
+	public void clickCancel() {
+		getCancel().click();
+	}
+	
+
+	//setters
+	
+	public void setVacancyname(String name) {
+		getVacancyname().sendKeys(name);
+	}
+
+	public void setDescription(String desc) {
+		getDescription().sendKeys(desc);
+	}
+
+	public void setHiringManager() {
+		getHiringManager().click();
+	}
+
+	public void setStatus() {
+		getStatus().click();
+	}
+
+	public void setJobtitle() {
+		getJobtitle().click();
+	}
+
+	public void setNoofpositions(String number) {
+		getNoofpositions().sendKeys(number);
+	}
+
+	public void setActive() {
+		getActive().click();
+	}
+
+	public void setPublish() {
+		getPublish().click();
+	}
+
+	public void setCancel() {
+		getCancel().click();
+	}
+
+	public void setSave() {
+		getSave().click();
+	}
+	
+	
+	// Full form business method
+	public void createVacancy(String name, String desc, String number) {
+		
+		setVacancyname(name);;
+		setDescription(desc);
+		setNoofpositions(number);
+	}
+	public void HiringSelect(String hiringname) {
+		Actions act=new Actions(driver);
+		getHiringManager().click();
+		act.sendKeys(hiringname).pause(5000).sendKeys(Keys.ARROW_DOWN,Keys.ENTER).perform();
+	}
+	public void jobselect() {
+		Actions act=new Actions(driver);
+		getJobtitle().click();
+		act.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER).perform();
+	}
+}

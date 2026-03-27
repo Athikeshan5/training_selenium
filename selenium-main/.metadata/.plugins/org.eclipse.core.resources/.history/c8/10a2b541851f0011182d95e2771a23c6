@@ -1,0 +1,38 @@
+package pom_object_repository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPage{
+	
+	WebDriver driver;
+    public LoginPage(WebDriver driver){
+    	this.driver=driver;
+    }
+	//username
+    @FindBy(id="user-name")
+	WebElement username;
+	//password
+    @FindBy(id="password")
+	WebElement password;
+	//login
+	@FindBy(id="login-button")
+	WebElement login;
+	
+	 public void enterUrl(String url) {
+		   driver.get(url);
+	   }
+	//Bussiness logic(Login action)
+	public void enterCredational(String user,String pass) {
+	  username.sendKeys(user);
+	  password.sendKeys(pass);
+	}
+	public void login() {
+		login.click();
+	}
+	
+
+
+}

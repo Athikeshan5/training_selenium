@@ -1,0 +1,36 @@
+package pageFactoryPom;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LoginPageFactoryPage {
+	
+	WebDriver driver;
+    public LoginPageFactoryPage(WebDriver driver){
+    	this.driver=driver;
+    }
+	//username
+    @FindBy(id="user-name")
+	WebElement username;
+	
+	//password
+	@FindBy(id="password")
+	WebElement password;
+	//login
+	@FindBy(id="login-button")
+	WebElement login;
+	
+	 public void enterUrl(String url) {
+		   driver.get(url);
+	   }
+	//Bussiness logic(Login action)
+	public void enterCredational(String user,String pass) {
+	  username.sendKeys(user);	
+	  password.sendKeys(pass);
+	}
+	public void login() {
+		login.click();
+	}
+}

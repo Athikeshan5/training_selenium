@@ -1,0 +1,7 @@
+{
+	"login":{
+		"user":"name:username",
+		"pass":"name:password",
+		"login":"cssSelector:[type='submit']"
+	}
+}

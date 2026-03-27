@@ -1,0 +1,24 @@
+package pom_object_repository;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class LogoutPage {
+    WebDriver driver;
+    public LogoutPage(WebDriver driver) {
+    	this.driver=driver;
+    }
+    @FindBy(xpath="//a[.='Logout']")
+    WebElement Log;
+    @FindBy(xpath="//button[.='Open Menu']")
+    WebElement menu;
+    //Logout
+    public void Logout() {
+	//click menu
+	menu.click();
+	//logout button
+	Log.click();
+}
+}

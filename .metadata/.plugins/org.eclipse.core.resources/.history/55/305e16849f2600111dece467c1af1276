@@ -1,0 +1,60 @@
+package GenericUtility;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+public class ExcelUtility { 
+	String path; 
+	public ExcelUtility(String path) { 
+		this.path = path; 
+		
+}
+
+public Object[][] getSheetData(String sheetName) throws IOException {
+	
+    FileInputStream fis = new FileInputStream(path);
+    Workbook wb = WorkbookFactory.create(fis);
+    Sheet sheet = wb.getSheet(sheetName);
+
+    int rows = sheet.getLastRowNum();
+    int cols = sheet.getRow(0).getLastCellNum();
+
+    // Temporary storage (max size)
+    Object[][] tempData = new Object[rows][cols];
+    int validRowCount = 0;
+
+    for (int i = 1; i <= rows; i++) {
+        Row row = sheet.getRow(i);
+
+        // ❗ Skip completely empty row
+        if (row == null || row.getCell(0) == null || row.getCell(0).toString().trim().isEmpty()) {
+            continue;
+        }
+
+        for (int j = 0; j < cols; j++) {
+            if (row.getCell(j) != null) {
+                tempData[validRowCount][j] = row.getCell(j).toString();
+            } else {
+                tempData[validRowCount][j] = "";
+            }
+        }
+
+        validRowCount++;
+    }
+
+    // Final array with only valid rows
+    Object[][] data = new Object[validRowCount][cols];
+
+    for (int i = 0; i < validRowCount; i++) {
+        data[i] = tempData[i];
+    }
+
+    wb.close();
+    fis.close();
+
+    return data;
+}
+}

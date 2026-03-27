@@ -1,0 +1,36 @@
+package Demo;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+import org.testng.annotations.Test;
+
+public class practice {
+@Test
+public void readdata() throws IOException {
+	//convert java understandable code file
+	FileInputStream fs=new FileInputStream("./src/test/resources/orangehrmCommonData/parameterizaionPropertiesFile.properties");
+	//pass the compiler to understand key value pair data
+	Properties prop=new Properties();
+	prop.load(fs);
+	
+	String urls=prop.getProperty("url");//it will fetch the value of url from the properties file
+	System.out.println(urls);
+	String browsers=prop.getProperty("browser");
+	System.out.println(browsers);
+	String usernames=prop.getProperty("username");
+	System.out.println(usernames);
+	String passwords=prop.getProperty("password");
+	System.out.println(passwords);
+	
+	//write a data in file with code
+	FileOutputStream fo=new FileOutputStream("./src/test/resources/orangehrmCommonData/rewrite.properties");
+	prop.setProperty("candidatename", "nafhal");
+	prop.store(fo, null);
+	prop.setProperty("urls", "https://www.google.com");
+	prop.store(fo,null);
+	
+}
+}

@@ -1,0 +1,66 @@
+package recruitment.module;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class vacancyRecuritment {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	public void launchbrowser() {
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 2,dependsOnMethods = "login")
+	public void addRecruitment() {
+		//click Recruitment
+		driver.findElement(By.xpath("//span[.='Recruitment']")).click();
+		
+		
+		//click vacancy
+		driver.findElement(By.xpath("//a[.='Vacancies']")).click();
+		
+		//click Add
+		driver.findElement(By.xpath("//button[.=' Add ']")).click();
+				
+		//vacancy name
+		WebElement name=driver.findElement(By.xpath("//label[.='Vacancy Name']/../..//input[@class='oxd-input oxd-input--active']"));
+		name.sendKeys("Guru",Keys.ENTER);
+		
+		//job title
+		Actions act=new Actions(driver);
+		WebElement title=driver.findElement(By.xpath("//label[.='Job Title']/../..//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']"));
+		act.click(title).sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER).perform();
+		
+		//add description
+		WebElement description=driver.findElement(By.xpath("//textarea"));
+		description.sendKeys("goog person",Keys.ENTER);
+		
+		//hiring manager
+		WebElement manager=driver.findElement(By.xpath("//label[.='Hiring Manager']/../..//i[@class='oxd-icon bi-caret-down-fill oxd-select-text--arrow']"));
+		act.click(manager).sendKeys("Ranga").pause(3000).sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER).perform();
+		
+		//number of positions
+		WebElement position=driver.findElement(By.xpath("//label[.='Number of Positions']/../..//input[@class='oxd-input oxd-input--active']"));
+		position.click();
+		position.sendKeys("5");
+		
+		//click save button
+		driver.findElement(By.xpath("//button[@type='submit']")).click();
+	}
+}

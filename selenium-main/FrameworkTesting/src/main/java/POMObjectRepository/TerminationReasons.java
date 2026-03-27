@@ -1,0 +1,55 @@
+package POMObjectRepository;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class TerminationReasons {
+	public WebDriver driver;
+	public TerminationReasons(WebDriver driver) {
+		this.driver=driver;
+		PageFactory.initElements(driver, this);
+	}
+	@FindBy(css = ".oxd-button--secondary")
+	private WebElement addBtn;
+
+	public WebElement getAddBtn() {
+		return addBtn;
+	}
+
+	public void clickAddBtn() {
+		getAddBtn().click();
+	}
+	By empList = By.xpath("//div[@role='row']//div[2]");
+	By nextBtn = By.xpath("//child::i[@class='oxd-icon bi-chevron-right']/parent::button");
+
+	public boolean listEmployeeButton(String empname) {
+
+	    while (true) {
+	    	//list of candidate name
+	        List<WebElement> empnamelist = driver.findElements(empList);
+	        for (WebElement emp : empnamelist) {
+	            String text = emp.getText().trim();
+	            if (text.contains(empname)) {
+	            	System.out.println("Employee Name: " + text);
+	                return true;
+	            }
+	        }
+	        // check next button
+	       
+	        List<WebElement> nextList = driver.findElements(nextBtn);
+	        if (nextList.size() > 0 && nextList.get(0).isEnabled()) {//every time the list contain 1 webelement then why list means
+	        	//when move to last page the element not present so it shows no such element exception instead we use list to void exception
+	            nextList.get(0).click();
+	        } else {
+	            break;
+	        }
+	    }
+	    return false;
+	}
+
+}

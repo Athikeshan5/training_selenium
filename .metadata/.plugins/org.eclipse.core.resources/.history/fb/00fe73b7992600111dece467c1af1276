@@ -1,0 +1,26 @@
+package GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
+public class FileUtility {
+	FileInputStream fs;
+	Properties prop;
+	
+	//Read
+	public String getPropertyKeyValue(String key) throws IOException {
+		fs=new FileInputStream("./src/test/resources/orangehrmCommonData/parameterizaionPropertiesFile.properties");
+		//pass the compiler to understand key value pair data
+		prop=new Properties();
+		prop.load(fs);
+		String value=prop.getProperty(key);
+		return value;
+	}
+	
+	//write
+	public void setPropertyKeyValue(String key,String value) throws IOException {
+		
+		
+	}
+}

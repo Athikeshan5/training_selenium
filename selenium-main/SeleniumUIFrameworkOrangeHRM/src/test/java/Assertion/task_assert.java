@@ -1,0 +1,81 @@
+package Assertion;
+
+import java.time.Duration;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class task_assert {
+	WebDriver driver=null;
+	@Test(priority = 1)
+	public void launchbrowser() {
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+	}
+	@Test(priority = 2,dependsOnMethods = "launchbrowser")
+	public void login() {
+		//login
+		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+		driver.findElement(By.name("username")).sendKeys("Admin");
+		driver.findElement(By.name("password")).sendKeys("admin123");
+		driver.findElement(By.tagName("button")).click();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void validateHard() {
+		String expect="https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+		String Actual=driver.getCurrentUrl();
+		
+		Assert.assertEquals(expect, Actual);
+		if(expect.equals(Actual)) {
+			System.out.println("login valid");
+		}else {
+			System.out.println("login failed");
+		}
+	}
+	
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void validateSoft() {
+		String expect="https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+		String Actual=driver.getCurrentUrl();
+		
+		SoftAssert sa=new SoftAssert();
+		sa.assertEquals(expect, Actual);
+		if(expect.equals(Actual)) {
+			System.out.println("login valid");
+		}else {
+			System.out.println("login failed");
+		}
+		sa.assertAll();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void validateSoftfailed() {
+		String expect="https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/login";
+		String Actual=driver.getCurrentUrl();
+		
+		SoftAssert sa=new SoftAssert();
+		sa.assertEquals(expect, Actual);
+		if(expect.equals(Actual)) {
+			System.out.println("login valid");
+		}else {
+			System.out.println("login failed");
+		}
+		sa.assertAll();
+	}
+	@Test(priority = 3,dependsOnMethods = "login")
+	public void validateHardfailed() {
+		String expect="https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/login ";
+		String Actual=driver.getCurrentUrl();
+		
+		Assert.assertEquals(expect, Actual);
+		if(expect.equals(Actual)) {
+			System.out.println("login valid");
+		}else {
+			System.out.println("login failed");
+		}
+	}
+}

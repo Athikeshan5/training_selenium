@@ -1,0 +1,5 @@
+package com.orangehrm.testng.myinfo;
+
+public class MyInfoEmployee {
+
+}

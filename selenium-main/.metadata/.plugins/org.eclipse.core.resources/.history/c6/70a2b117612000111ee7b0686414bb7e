@@ -1,0 +1,8 @@
+package GenericUtility;
+
+public class BaseClass {
+@BeforeClass
+public void BeforeClass() {
+	
+}
+}

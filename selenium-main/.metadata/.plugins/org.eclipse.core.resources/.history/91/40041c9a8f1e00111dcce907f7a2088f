@@ -1,0 +1,10 @@
+package GenericUtility;
+
+public class BaseClass {
+@beforeSuite
+public void beforeSuit() {
+	
+}
+@AfterSuite
+
+}

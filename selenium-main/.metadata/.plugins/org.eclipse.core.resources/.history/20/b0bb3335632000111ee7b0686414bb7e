@@ -1,0 +1,62 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class LoginPage {
+	 public WebDriver driver;
+	 public LoginPage(WebDriver driver) {
+		  this.driver=driver;
+		  PageFactory.initElements(driver,this);
+	  }
+ 
+      @FindAll({ @FindBy(className="oxd-input oxd-input--active"),@FindBy(name="username"),@FindBy(css="[placeholder='Username']"),@FindBy(xpath ="//input[@placeholder='Username' and @name='username']")})
+      WebElement username;
+      @FindAll({ @FindBy(className="oxd-input oxd-input--active"),@FindBy(name="password"),@FindBy(css="[placeholder='Password']"),@FindBy(xpath ="//input[@placeholder='Password' and @name='password']")})
+      WebElement password;
+      @FindAll({@FindBy(className="oxd-button oxd-button--medium oxd-button--main orangehrm-login-button"),@FindBy(css="oxd-button oxd-button--medium oxd-button--main orangehrm-login-button"),@FindBy(xpath  ="//button[@class='oxd-button oxd-button--medium oxd-button--main orangehrm-login-button' and @type='submit']")})
+      WebElement Login;
+      @FindBy(xpath="//*[name()='svg']/parent::a[@href='https://www.linkedin.com/company/orangehrm/mycompany/']")
+      WebElement LinkedIn;
+      @FindBy(xpath="//*[name()='svg']/parent::a[@href='https://www.facebook.com/OrangeHRM/']")
+      WebElement Facebook;
+      @FindBy(xpath="//*[name()='svg']/parent::a[@href='https://twitter.com/orangehrm?lang=en']")
+      WebElement Twitter;
+      @FindBy(xpath="//*[name()='svg']/parent::a[@href='https://www.youtube.com/c/OrangeHRMInc']")
+      WebElement Youtube;
+      @FindBy(xpath="//a[@href='http://www.orangehrm.com']")
+      WebElement OrangeHRM;
+      @FindBy(xpath="//p[.='Forgot your password? ']")
+      WebElement ForgotPassword;
+      public void enterCredational(String name,String pass) {
+    	  username.sendKeys(name);
+    	  password.sendKeys(pass);
+      }
+      public void LoginButton() {
+    	  Login.click();
+      }
+      public void LinkedInLink() {
+    	   LinkedIn.click();  
+      }
+      public void FacebookLink() {
+   	   Facebook.click();  
+     }
+      public void TwtterLink() {
+   	   Twitter.click();  
+     }
+      public void YoutubeLink() {
+   	   Youtube.click();  
+     }
+      public void OrangeHRMLink() {
+   	   OrangeHRM.click();  
+     }
+      public void ForgotPasswordLink() {
+   	   ForgotPassword.click();  
+     }
+      public void urlPage(String url) {
+    	  driver.get(url);
+      }
+}

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="classes" thread-count="5">
+
+
+  <parameter name="browser" value="chrome"/>
+
+  <!-- Smoke -->
+  <test name="smoke">
+    <groups>
+      <run>
+        <include name="smoke"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="pim.module.PimTest"/>
+      <class name="pim.module.AddTerminationReasonsAndVerifyTest"/>
+    </classes>
+  </test>
+
+  <!-- Regression -->
+  <test name="regression">
+    <groups>
+      <run>
+        <include name="regression"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="pim.module.PimTest"/>
+      <class name="pim.module.AddTerminationReasonsAndVerifyTest"/>
+    </classes>
+  </test>
+
+</suite>

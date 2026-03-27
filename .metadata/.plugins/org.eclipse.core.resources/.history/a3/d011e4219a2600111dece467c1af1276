@@ -1,0 +1,42 @@
+package Recruitment.module;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
+
+import GenericUtility.BaseClass;
+import POMObjectRepository.AddVacanciesPage;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.RecruitmentPage;
+
+public class AddVacancyTest extends BaseClass {
+
+    @Test
+    public void addVacancy() {
+
+        DashboardPage dp = new DashboardPage(driver);
+        RecruitmentPage rp = new RecruitmentPage(driver);
+        AddVacanciesPage av = new AddVacanciesPage(driver);
+
+        // Navigate
+        dp.Recruitmentlink();
+        rp.clickVacancies();
+        rp.clickAdd();
+
+        // Create Vacancy
+        av.createVacancy(
+                fu.getPropertyKeyValue("vacancyName"),
+                fu.getPropertyKeyValue("description"),
+                fu.getPropertyKeyValue("positions")
+        );
+
+        // Wait for Hiring Manager field
+        ww.until(ExpectedConditions.visibilityOf(av.getHiringManager()));
+
+        // Select values
+        av.HiringSelect(fu.getPropertyKeyValue("hiringManager"));
+        av.jobselect();
+
+        // Save
+        av.setSave();
+    }
+}

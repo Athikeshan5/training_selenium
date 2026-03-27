@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectWizardLocationPage">
+		<list key="location">
+			<item value="D:\testing_selenium\javascript_executor\src\test\java\perform_action_hidden_element\hidden_element.java"/>
+			<item value="D:\testing_selenium\Interrogation_api\src\test\java\Webdriver_interrogation_method\test.java"/>
+			<item value="D:\testing_selenium\SeleniumTraining\src\test\java\PROJECT\loginTest.java"/>
+			<item value="D:\testing_selenium\SeleniumTraining\src\test\java\practice"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArchetypePage">
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="Maven2ProjectWizardArchifactPage">
+		<list key="package">
+		</list>
+		<list key="groupId">
+		</list>
+		<list key="artifactId">
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenProjectWizardArtifactPage">
+		<list key="groupId">
+			<item value="com.OrangeHRM.Framework.Testing"/>
+			<item value="panimalar.com"/>
+			<item value="capgemini.training"/>
+		</list>
+		<list key="name">
+		</list>
+		<list key="artifactId">
+			<item value="FrameworkTesting"/>
+			<item value="TestNG"/>
+			<item value="action_cass"/>
+			<item value="javascript_executor"/>
+			<item value="synchornization"/>
+			<item value="popups"/>
+			<item value="dropdown"/>
+			<item value="Interrogation_api"/>
+			<item value="webelement-api"/>
+			<item value="window_handle"/>
+			<item value="navigation-api"/>
+			<item value="browser_action"/>
+			<item value="locators"/>
+			<item value="SeleniumTraining"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+		<list key="version">
+			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

@@ -1,0 +1,54 @@
+package GenericUtility;
+
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+
+
+public class BaseClass {
+	@BeforeSuite
+	public void beforesuit() {
+		Reporter.log("Executing BeforeSuit",true);
+	}
+	@BeforeTest
+	public void beforetest() {
+		Reporter.log("Executing Beforetest",true);
+		
+	}
+	@BeforeClass
+	public void beforeclass() {
+		Reporter.log("Executing Beforeclass",true);
+	}
+	@BeforeMethod
+	public void beforeMethod() {
+		Reporter.log("Executing Beformethod",true);
+		
+	}
+	@AfterMethod
+	public void afterMethod() {
+		Reporter.log("Executing Aftermethod",true);
+		
+	}
+	@AfterClass
+	public void afterclass() {
+		Reporter.log("Executing Aftertest",true);
+		
+	}
+	@AfterTest
+	public void afterTest() {
+		Reporter.log("Executing AfterClass",true);
+		
+	}
+	@AfterSuite
+	public void afterSuite() {
+		Reporter.log("Executing AfterSuit",true);
+		
+	}   
+}

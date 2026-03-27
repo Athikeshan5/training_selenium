@@ -1,0 +1,59 @@
+package GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class ExcelUtility {
+
+    String path;
+
+    public ExcelUtility(String path) {
+        this.path = path;
+    }
+
+    public Object[][] getSheetData(String sheetName) throws IOException {
+
+        FileInputStream fis = new FileInputStream(path);
+        Workbook wb = WorkbookFactory.create(fis);
+        Sheet sheet = wb.getSheet(sheetName);
+
+        int rows = sheet.getLastRowNum();
+        int cols = sheet.getRow(0).getLastCellNum();
+
+        Object[][] tempData = new Object[rows][cols];
+        int validRowCount = 0;
+
+        // 🔥 Formatter to handle all cell types
+        DataFormatter df = new DataFormatter();
+
+        for (int i = 1; i <= rows; i++) {
+            Row row = sheet.getRow(i);
+
+            // Skip empty row
+            if (row == null || df.formatCellValue(row.getCell(0)).trim().isEmpty()) {
+                continue;
+            }
+
+            for (int j = 0; j < cols; j++) {
+                tempData[validRowCount][j] = df.formatCellValue(row.getCell(j));
+            }
+
+            validRowCount++;
+        }
+
+        // Final array
+        Object[][] data = new Object[validRowCount][cols];
+
+        for (int i = 0; i < validRowCount; i++) {
+            data[i] = tempData[i];
+        }
+
+        wb.close();
+        fis.close();
+
+        return data;
+    }
+}

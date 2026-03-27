@@ -1,0 +1,23 @@
+package pom;
+
+
+import org.testng.annotations.Test;
+
+import GenericUtility.BaseClass;
+import pageFactoryPom.LoginPageFactoryPage;
+import pageFactoryPom.LogoutPageFactoryPage;
+
+
+public class LoginAndLogoutPageFactoryTest extends BaseClass{
+	
+	
+	public void logouttest() {
+	   LoginPageFactoryPage l1=new LoginPageFactoryPage(driver);
+	   LogoutPageFactoryPage lp=new LogoutPageFactoryPage(driver);
+	   //navigate url
+	   l1.enterUrl("https://www.saucedemo.com/");
+	   l1.enterCredational("standard_user","secret_sauce");
+	   l1.login();
+       lp.Logout();
+	}
+}

@@ -1,0 +1,32 @@
+package POMObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindAll;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class ForgotPasswordPage {
+    public WebDriver driver;
+	public ForgotPasswordPage(WebDriver driver) {
+		  this.driver=driver;
+		  PageFactory.initElements(driver,this);
+	  }
+
+	@FindAll({ @FindBy(className="oxd-input oxd-input--active"),@FindBy(name="username"),@FindBy(css="[placeholder='Username']"),@FindBy(xpath ="//input[@placeholder='Username' and @name='username']")})
+    WebElement username;
+	@FindBy(xpath="//button[.=' Cancel ']")
+	WebElement cancel;
+	@FindBy(xpath="//button[.=' Reset Password ']")
+	WebElement ResetPassword;
+	
+	public void enterUserReset(String user) {
+		username.sendKeys(user);
+	}
+	public void cancelButton() {
+	    cancel.click();	
+	}
+	public void ResetButton() {
+	    ResetPassword.click();	
+	}
+}

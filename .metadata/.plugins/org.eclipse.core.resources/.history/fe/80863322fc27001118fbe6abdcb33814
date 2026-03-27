@@ -1,0 +1,201 @@
+package POMObjectRepository;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.asserts.SoftAssert;
+
+public class PIMPage {
+public WebDriver driver;
+public PIMPage(WebDriver driver) {
+	this.driver=driver;
+	PageFactory.initElements(driver, this);
+}
+@FindBy(xpath="//a[.='Add Employee']")
+private WebElement addEmployee;
+	
+@FindBy(css="[class='oxd-topbar-body-nav-tab-item']")
+private WebElement configuration;
+
+
+@FindBy(xpath="//a[.='Reports']")
+private WebElement reports;
+ 
+@FindBy(xpath="//a[.='Employee List']")
+private WebElement EmployeeList;
+
+@FindBy(css="[class='oxd-icon bi-caret-up-fill']")
+private WebElement EmpInfoDropDown;
+
+@FindBy(xpath="//label[.='Employee Name']/following::input[1]")
+private WebElement EmployeeName;
+
+@FindBy(xpath="//label[.='Employee Id']/following::input[1]")
+private WebElement EmployeeId;
+
+@FindBy(xpath="//label[.='Employment Status']/following::div[1]")
+private WebElement EmploymentStatus;
+
+@FindBy(xpath="//div[.='Current Employees Only' and @class='oxd-select-text-input']")
+private WebElement Include;
+
+@FindBy(xpath="//div[.='Supervisor Name']/following::input[@placeholder='Type for hints...']")
+private WebElement supervisorname;
+
+@FindBy(xpath="//div[.='Job Title']/..//div[@class='oxd-select-text-input']")
+private WebElement JobTitle;
+
+@FindBy(xpath="//div[.='Sub Unit']/..//div[@class='oxd-select-text-input']")
+private WebElement subunit;
+
+@FindBy(xpath="//button[.=' Reset ']")
+private WebElement reset;
+
+@FindBy(xpath="//button[.=' Search ']")
+private WebElement search;
+
+@FindBy(xpath="//button[.=' Add ']")
+private WebElement add;
+
+@FindBy(linkText = "Termination Reasons")
+private WebElement terminationReasons;
+
+public WebElement getEmployeeList() {
+	return EmployeeList;
+}
+
+public WebElement getEmployeeName() {
+	return EmployeeName;
+}
+
+public void setEmployeeName(String employeeName) {
+	getEmployeeName().sendKeys(employeeName);
+}
+
+public WebElement getEmployeeId() {
+	return EmployeeId;
+}
+
+public void setEmployeeId(String employeeId) {
+	getEmployeeId().sendKeys(employeeId);
+}
+
+public WebElement getInclude() {
+	return Include;
+}
+
+public void setInclude(String include) {
+	getInclude().sendKeys(include);
+}
+
+public WebElement getSupervisorname() {
+	return supervisorname;
+}
+
+public void setSupervisorname(String supervisorname) {
+    getSupervisorname().sendKeys(supervisorname);;
+}
+
+public WebElement getJobTitle() {
+	return JobTitle;
+}
+
+public void setJobTitle(String jobTitle) {
+	getJobTitle().sendKeys(jobTitle);;
+}
+
+public WebElement getSubunit() {
+	return subunit;
+}
+
+public void setSubunit(String subunit) {
+	getSubunit().sendKeys(subunit);;
+}
+
+public WebElement getEmpInfoDropDown() {
+	return EmpInfoDropDown;
+}
+
+public WebElement getEmploymentStatus() {
+	return EmploymentStatus;
+}
+public void setEmploymentStatus(String status) {
+	getEmploymentStatus().sendKeys(status);;
+}
+public WebElement getReset() {
+	return reset;
+}
+
+public WebElement getSearch() {
+	return search;
+}
+
+public WebElement getAdd() {
+	return add;
+}
+public WebElement getConfiguration() {
+	return configuration;
+}
+
+public WebElement getTerminationReasons() {
+	return terminationReasons;
+}
+//bussiness logic
+public void addEmployee() {
+	getAdd().click();
+}
+public void clickConfiguration() {
+	getConfiguration().click();
+}
+
+public void clickTerminationReasons() {
+	getTerminationReasons().click();
+}
+
+ By empList = By.xpath("//div[@role='row']//div[3]");
+ By nextBtn = By.xpath("//child::i[@class='oxd-icon bi-chevron-right']/parent::button");
+
+ @FindBy(xpath="//div[@role='row']//div[3]")
+ private List<WebElement> emp;
+ 
+ public WebElement getemp(String empname) {
+	 List<WebElement> empnamelist = driver.findElements(empList);
+	 WebElement d=null;
+     for (WebElement emp : empnamelist) {
+    	 String text = emp.getText().trim();
+         if (text.equalsIgnoreCase(empname)) {
+	      d=emp;
+         }
+     }
+     return d;
+ }
+public boolean listEmployeeButton(String empname) {
+
+    while (true) {
+    	//list of candidate name
+        List<WebElement> empnamelist = driver.findElements(empList);
+        for (WebElement emp : empnamelist) {
+            String text = emp.getText().trim();
+            if (text.equalsIgnoreCase(empname)) {
+            	System.out.println("Employee Name: " + text);
+                return true;
+            }
+        }
+        // check next button
+       
+        List<WebElement> nextList = driver.findElements(nextBtn);
+        if (nextList.size() > 0 && nextList.get(0).isEnabled()) {//every time the list contain 1 webelement then why list means
+        	//when move to last page the element not present so it shows no such element exception instead we use list to void exception
+            nextList.get(0).click();
+        } else {
+            break;
+        }
+    }
+    return false;
+}
+
+}

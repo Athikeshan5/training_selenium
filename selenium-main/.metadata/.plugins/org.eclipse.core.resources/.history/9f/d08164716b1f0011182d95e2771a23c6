@@ -1,0 +1,9 @@
+package pom_object_repository;
+
+import org.openqa.selenium.WebDriver;
+
+public class LogoutPage {
+    WebDriver driver;
+    
+    //
+}

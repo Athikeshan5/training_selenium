@@ -1,0 +1,52 @@
+package Recruitment.module;
+
+import java.io.IOException;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import GenericUtility.BaseClass;
+import GenericUtility.ExcelUtility;
+import POMObjectRepository.AddVacanciesPage;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.RecruitmentPage;
+
+public class AddVacancyTest extends BaseClass {
+
+    @DataProvider(name = "vacancyData")
+    public Object[][] getData() throws IOException {
+        ExcelUtility eu = new ExcelUtility("./src/test/resources/orangehrmTestScriptData/vacancyTestScriptData.xlsx");
+        return eu.getSheetData("addVacancy");
+    }
+
+    @Test(dataProvider = "vacancyData")
+    
+    public void addVacancy(
+            String testCase,
+            String vacancyName,
+            String jobTitle,
+            String description,
+            String hiringManager,
+            String positions,
+            String active,
+            String publishRSS) {
+
+        DashboardPage dp = new DashboardPage(driver);
+        RecruitmentPage rp = new RecruitmentPage(driver);
+        AddVacanciesPage av = new AddVacanciesPage(driver);
+
+        dp.Recruitmentlink();
+        rp.clickVacancies();
+        rp.clickAdd();
+
+        av.createVacancy(vacancyName, description, positions);
+
+        ww.until(ExpectedConditions.visibilityOf(av.getHiringManager()));
+
+        av.HiringSelect(hiringManager);
+        av.jobselect();
+
+        av.setSave();
+    }
+}

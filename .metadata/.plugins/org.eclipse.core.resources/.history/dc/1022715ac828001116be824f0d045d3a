@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="classes" thread-count="5">
+  <test name="smoke">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="pim.module.PimTest"/>
+      <class name="pim.module.AddTerminationReasonsAndVerifyTest"/>
+    </classes>
+  </test>
+</suite>

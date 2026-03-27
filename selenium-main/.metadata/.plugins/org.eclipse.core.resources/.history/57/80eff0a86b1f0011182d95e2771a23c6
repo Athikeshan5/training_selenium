@@ -1,0 +1,14 @@
+package pom;
+
+import org.testng.annotations.Test;
+
+import GenericUtility.BaseClass;
+import pom_object_repository.LogoutPage;
+
+public class LogoutTest extends BaseClass{
+	@Test
+	public void logouttest() {
+       LogoutPage lp=new LogoutPage(driver);
+       lp.Logout();
+	}
+}

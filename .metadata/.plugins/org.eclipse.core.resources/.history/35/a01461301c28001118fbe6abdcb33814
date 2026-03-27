@@ -1,0 +1,41 @@
+package Demo;
+
+import java.io.File;
+import java.io.IOException;
+
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.annotations.Test;
+
+
+
+import GenericUtility.FileUtility;
+import GenericUtility.WebDriverUtility;
+import POMObjectRepository.LoginPage;
+
+public class CaptureScreenShot {
+@Test
+public void screenShot() throws IOException {
+	WebDriver driver=new ChromeDriver();
+	WebDriverUtility w=new WebDriverUtility(driver);
+    LoginPage lp=new LoginPage(driver);
+    FileUtility fu=new FileUtility();
+	w.maximizeBrowser();
+	w.waitForElementsToLoad(20L);
+	 lp.url(fu.getPropertyKeyValue("url"));
+     lp.enterCredational(
+             fu.getPropertyKeyValue("username"),
+             fu.getPropertyKeyValue("password"));
+     lp.LoginButton();
+     w.waitForElementsToLoad(20L);
+     TakesScreenshot ts=(TakesScreenshot)driver;
+     File temp = ts.getScreenshotAs(OutputType.FILE);//to store the screenshot it is temporary location to store the file
+     File permanent=new File("./reports/dashboard.png");
+     FileHandler.copy(temp, permanent);
+	
+}
+}

@@ -1,0 +1,34 @@
+package pim.module;
+import java.io.IOException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+import GenericUtility.BaseClass;
+import POMObjectRepository.AddEmployee;
+import POMObjectRepository.DashboardPage;
+import POMObjectRepository.LoginPage;
+import POMObjectRepository.PIMPage;
+
+public class PimTest extends BaseClass {
+  
+	@Test
+	public void addEmployeespim() throws InterruptedException, IOException {
+	LoginPage lp=new LoginPage(driver);
+	DashboardPage dp=new DashboardPage(driver);
+	PIMPage pp=new PIMPage(driver);
+	AddEmployee ae=new AddEmployee(driver);
+	lp.LoginButton();
+	dp.pimlink();
+	pp.addEmployee();
+    ae.createEmployee("athi", "keshan", "v", "0345");
+    ww.until(ExpectedConditions.visibilityOf(ae.getUsername()));
+	ae.EmployeeCredetionals("athikeshanv", "athi@2005", "athi@2005");
+	ae.getSave().click();
+	dp.pimlink();
+	SoftAssert sa=new SoftAssert();
+	sa.assertTrue(pp.listEmployeeButton("Rahul"),"no result found");
+	sa.assertAll();
+	
+	
+	}
+}

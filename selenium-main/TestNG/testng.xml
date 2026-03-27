@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Suite">
+  <test name="chrome">
+  <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="pim.module.TerminationReason"/>
+      <class name="pim.module.AddCandidate"/>
+    </classes>
+  </test> <!-- Test -->
+    <test name="edge">
+  <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="pim.module.TerminationReason"/>
+      <class name="pim.module.AddCandidate"/>
+    </classes>
+  </test>
+    <test name="firefox">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="pim.module.TerminationReason"/>
+      <class name="pim.module.AddCandidate"/>
+    </classes>
+  </test>
+</suite> <!-- Suite -->
+<!--parallel cross browser-->
